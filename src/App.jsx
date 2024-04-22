@@ -3,15 +3,19 @@ import Content from "./components/Content"
 import Title from "./components/Title"
 import './App.css'
 
+import { createContext } from 'react'
+export const ThemeContext = createContext()
+
 function App() {
-  const [count, setCount] = useState(0)
-
+  const [theme, setTheme] = useState('dark')
   return (
-    <div>
-      <Title />
-      <Content />
+    <ThemeContext.Provider value={{ theme, setTheme }}>
+      <div>
+        <Title />
+        <Content />
+      </div>
+    </ThemeContext.Provider>
 
-    </div>
   )
 }
 

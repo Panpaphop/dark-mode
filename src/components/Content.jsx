@@ -1,16 +1,18 @@
 import light from '../image/light.svg'
 import dark from '../image/dark.svg'
+import { useContext } from 'react'
+import { ThemeContext } from '../App'
 
 
 const Content = () => {
+    const { theme } = useContext(ThemeContext)
     return (
-        <main>
+        <main className={theme === "dark" ? "dark" : "light"}>
             <div>
                 <h1>Ryu Panpapahop</h1>
                 <p>DarkMode Workshop</p>
             </div>
-            <img src={light} alt="logo" />
-            <img src={dark} alt="logo" />
+            <img src={theme === "dark" ? dark : light} alt="logo" />
         </main>
     )
 }
